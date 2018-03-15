@@ -1,0 +1,2 @@
+# blog
+private static blog
