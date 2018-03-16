@@ -1,2 +1,0 @@
-# blog
-private static blog

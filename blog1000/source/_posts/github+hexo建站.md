@@ -14,8 +14,8 @@ tags:
 [什么是markdown](https://zhidao.baidu.com/question/1766196940543047940.html)
 [如何在github上建立仓库](http://jingyan.baidu.com/article/ce43664927411a3773afd30f.html)(注意：仓库名一定要是     你的github用户名.github.io    )
 [如何使本地仓库与github的仓库建立关联](http://blog.csdn.net/binyao02123202/article/details/20130891)
-<img src='http://img.027cgb.cn/20170711/20177119681775731906.png' />
 
+---
 你要知道git的基本使用如：
 ```
 //先cd你的仓库，然后
@@ -26,9 +26,10 @@ git push//提交
 <h3>2.安装HEXO</h3>
 ```c++
 npm install hexo-cli -g    //cmd中输入
+npm install hexo --save
 ```
 
-<img src='http://img.027cgb.cn/20170711/20177112501775731906.png' />
+![](http://oxz3x2njl.bkt.clouddn.com/2018-03-15_201915.png)
 
 <h3>3.hexo 命令</h3>
 ```
