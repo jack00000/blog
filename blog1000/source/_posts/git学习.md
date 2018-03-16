@@ -19,3 +19,6 @@ categories: skills
 - git status /git status 文件名
 - git diff  /git diff 文件名
 - git reset --hard 序列号
+
+---
+- git本地与github建立连接
