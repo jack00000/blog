@@ -21,4 +21,6 @@ categories: skills
 - git reset --hard 序列号
 
 ---
-- git本地与github建立连接
+- git本地与github建立连接  [完整教程](http://www.360doc.com/content/17/0520/10/43284313_655499212.shtml)
+- 成功截图
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-03-16_142058.png)
