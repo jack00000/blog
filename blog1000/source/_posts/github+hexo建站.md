@@ -68,6 +68,7 @@ deploy:
   在git bash中输入命令
 ```
   npm install hexo-deployer-git --save
+  npm install hexo-generator-searchdb --save
   hexo g
   hexo d
 ```
