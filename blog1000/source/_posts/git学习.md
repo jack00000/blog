@@ -24,3 +24,8 @@ categories: skills
 - git本地与github建立连接  [完整教程](http://www.360doc.com/content/17/0520/10/43284313_655499212.shtml)
 - 成功截图
 ![](http://oyj1fkfcr.bkt.clouddn.com/2018-03-16_142058.png)
+
+- git push 报错（出现这种情况的原因是因为git仓库中已经有一部分代码，所以它不允许你直接把你的代码覆盖上去。第一种解决方法是强推
+即利用强覆盖方式用你本地的代码替代git仓库内的内容git push -f）
+![](http://oxz3x2njl.bkt.clouddn.com/2018-03-19_181538.png)
+![](http://oxz3x2njl.bkt.clouddn.com/2018-03-19_181532.png)

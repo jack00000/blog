@@ -7,16 +7,15 @@ tags:
 - pip install qqbot
 - qqbot
 - 扫码
+- 云服务器部署截图（windows本地部署图片失效）(已被禁啦 去年初还可以玩的，顺便说一句，写博客时，被有的群拉黑啦 ，因为无差别自动回复)
+![](http://oyhm15net.bkt.clouddn.com/2018-03-21_113457.png)
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-03-24_165745.png)
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-03-24_165500.png)
 
-<img src='http://i1.piimg.com/1949/759c16ee4572e6b1.png'>
-
-
-
-<img src='http://i1.piimg.com/1949/4f4edd8c64d2fac1.png'>
 
 <h3>SmartqqBot+图灵机器人</h3>
 - python的安装   pip的安装
-- [下载SmartqqBot源码](https://github.com/jack00000/SmartQQBot)
+- [下载SmartqqBot源码](https://github.com/Yinzo/SmartQQBot)
 - [注册图灵账号](http://www.tuling123.com/)并创建机器人获得apikey
 - 然后开始搞事情
 
@@ -27,12 +26,8 @@ tags:
 - 重点说pip（为安装一些依赖库而生）这个坑
 [python官网](https://pypi.python.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz#md5=35f01da33009719497f01a4ba69d63c9)
 
-- 图灵机器人插件配置
-![](http://i1.piimg.com/567571/76ca477fc3a35b08.png)
+- 图灵机器人插件配置(把序列号贴进key（src/smartqq-plugin/turing_boot文件中）)
 
-![](http://i1.piimg.com/567571/95788377816c2c89.png)
+
 
 - 运行run.py
-![](http://i2.muimg.com/567571/190b1af42c526203.png)
-
-![](http://i2.muimg.com/567571/f2c8ea9c83f421b2.png)
