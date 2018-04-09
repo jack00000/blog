@@ -11,6 +11,7 @@ categories: skills
 
 <h3>2.具体操作</h3>
 - 登陆
+- - mysql -u root -p
 ![](http://oyj1fkfcr.bkt.clouddn.com/2017-12-18_092846.png)
 - 新建数据库 新建表
 ![](http://oyj1fkfcr.bkt.clouddn.com/2017-12-18_092910.png)
