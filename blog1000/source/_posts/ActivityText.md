@@ -90,10 +90,10 @@ Button button3 = (Button) findViewById(R.id.button_3);
             @Override
             public void onClick(View v) {
                 ActivityCollector.finishAll();}}
-```                
+```
 
 <h3>启动活动最佳写法</h3>
-```Android
+```java
 为了解决 如secondActivity不是你开发的，但你需要知道启动这个活动需要传递那些数据 等问题
 原写法：
 Intent intent = new Intent(FristActivity.this, SecondActivity.class);
@@ -112,4 +112,8 @@ public class SecondActivity extends BaseActivity {
   }
 只需一行代码启动SecondActivity
  SecondActivity.actionStart(FirstActivity.this, "data1", "data2");
- ```  
+```
+
+ - 标题栏去除方法
+ - android:theme="@style/Theme.AppCompat.NoActionBar"  其他因为AppCompltActivity 影响  不行
+  ![](http://oxz3x2njl.bkt.clouddn.com/2018-04-23_234916.png)
