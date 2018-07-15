@@ -112,3 +112,8 @@ Connection c = null;
         }
 
 ```
+
+### idea 连接mysql数据库
+- 和eclipse一样 注意如何导包
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180710200352.png)
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180710195841.png)

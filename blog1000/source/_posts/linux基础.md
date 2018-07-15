@@ -2,8 +2,10 @@
 title: linux基础
 date: 2018-1-30 20:13:10
 tags:
-categories: skills   
+categories: skills
 ---
+- 不用vim 用gedit文本编辑器】
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180601170434.png)
 - vim编辑器操作
 - esc 四个模式（普通模式 插入模式 可视模式 命令行模式）切换
 - ：reg  查看缓存器的复制内容（复制粘贴真TM麻烦）

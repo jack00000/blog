@@ -1,11 +1,11 @@
 ---
 title: springboot 学习
-date: 2018-3-29 20:13:10
+date: 2018-6-10 20:13:10
 tags: java
 categories:
 ---
 
-<h3>完整教程：[how2j](http://how2j.cn/k/springboot/springboot-eclipse/1640.html)</h3>
+<h2>完整教程：[how2j](http://how2j.cn/k/springboot/springboot-eclipse/1640.html)</h3>
 
 <h3>备忘</h3>
 - springboot 本质是maven项目
@@ -39,6 +39,19 @@ categories:
 - 热部署 控制台 运行springboot时  修改 hellocontrol  控制台自动更新  （只需在pom.xml 配置一下）
 ![](http://oyj1fkfcr.bkt.clouddn.com/2018-03-30_093857.png)
 
+### eclipse创建springboot项目
+- 安装插件 Spring Tool Suite 联外网耗时20分钟
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-06-11_105801.png)
+- file- new maven project
+#### 导入
+- file- import- maven project- run Application.java
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-06-11_112015.png)
+
+### [thymeleaf](http://how2j.cn/k/springboot/springboot-thymeleat/1735.html#nowhere): 与jsp不同-thymeleaf 不需要 服务端的支持，就能够被以 html 的方式打开
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-06-11_114917.png)
+
+### CURD+thymeleaf
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-06-11_122132.png)
 
 
 -

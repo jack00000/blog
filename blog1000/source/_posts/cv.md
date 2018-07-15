@@ -6,7 +6,7 @@ categories: IT英语
 ---
 
 
-C.V    
+C.V
 
 Personal information
 Name: jack
@@ -39,3 +39,34 @@ Thanks for your careful consideration to my application.I look forward to hearin
 
 Yours faithfully
 jack
+
+def main():
+    app = QApplication(sys.argv)
+    mainWindow = MainWindow(app)
+    print("data path:"+mainWindow.DataPath)
+    print(mainWindow.param.skin)
+    if(mainWindow.param.skin == 1) :# light skin
+        file = open(mainWindow.DataPath+'/assets/qss/style.qss',"r")
+    else: #elif mainWindow.param == 2: # dark skin
+        file = open(mainWindow.DataPath + '/assets/qss/style-dark.qss', "r")
+    qss = file.read().replace("$DataPath",mainWindow.DataPath)
+    app.setStyleSheet(qss)
+    mainWindow.detectSerialPort()
+    t = threading.Thread(target=mainWindow.autoUpdateDetect)
+    t.setDaemon(True)
+    t.start()
+    sys.exit(app.exec_())
+
+    class ComboBox(QComboBox):
+    clicked = pyqtSignal()
+    def __init__(self):
+        QComboBox.__init__(self)
+        self.setView(QListView())
+        return
+
+    def __del__(self):
+        return
+
+    def mouseReleaseEvent(self, QMouseEvent):
+        self.clicked.emit()
+        return

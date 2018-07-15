@@ -27,3 +27,12 @@ categories: 实验项目
 
 - 成功
 ![](http://oyj1fkfcr.bkt.clouddn.com/2017-12-22_112955.png)
+
+
+### idea  [注册码](https://blog.csdn.net/qq_35246620/article/details/80522720)
+![](http://oyj1fkfcr.bkt.clouddn.com/2018-06-22_232948.png)
+#### Licence server
+- http://idea.congm.in
+- http://idea.lanyus.com/
+
+### jsp中引入jsp   <%@include file="navigator.jsp"%>

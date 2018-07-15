@@ -21,3 +21,23 @@ categories: how2j
 ![](http://oyj1fkfcr.bkt.clouddn.com/2018-01-26_162738.png)
 - 通过text() 获取元素内容,如果有子元素，不包含标签
 ![](http://oyj1fkfcr.bkt.clouddn.com/2018-01-26_162319.png)
+
+### json字符串转换成json对象
+
+```java
+<script src="http://how2j.cn/study/jquery.min.js"></script>
+
+<script>
+
+var s1 = "{\"name\":\"盖伦\"";
+var s2 = ",\"hp\":616}";
+var s3 = s1+s2;
+
+document.write("这是一个JSON格式的字符串:" + s3);
+document.write("<br>");
+var gareen = $.parseJSON(s3);
+
+document.write("这是一个JSON对象: " + gareen);
+
+</script>
+```
