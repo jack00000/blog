@@ -44,12 +44,6 @@ Method[] methods=c3.
 ```
 
 
-
-
-### 大Class对象+两个文件 factory.properties  实现通用工厂
-
-
-
 ### 自定义注释(通过反射实现：字符串在大Class里面找)： 通过方法提供属性
 ```txt
 - 注释在引用类的表现方式：类当方法用，方法当属性引用
@@ -89,13 +83,6 @@ public class StudentDao implements IStudentTDao {
 <bean id="registerDao" class="org.whgc.RegisterDao"></bean>
 <property ></property>
 ```
-
-
-
-
-### 用配置文件实现通用方法(动态代理)  事务控制，权限控制
-- 工厂层 事务 代理 全部动态即通用设计。
-
 
 
 
@@ -214,7 +201,8 @@ public class StudentDao implements IStudentTDao {
 
            Process finished with exit code 0
    */
-```  
+
+```
 
 ### 用反射实现通用工厂方法(需配合配置文件)
 - 需要配置文件factory.proprieties(就是ssm中的ApplicationContext.xml)。
@@ -222,6 +210,7 @@ public class StudentDao implements IStudentTDao {
 - 在factory.proprieties中key可以随便写，为什么？
 - 传入字符串通过key获得value（类字符串）用于创建对象
 - 通过key获得value（类字符串）用于创建对象,创建实现类dao对象并返回，全程没有出现某个具体类的创建，实现啦通用工厂。
+
 ```java
 class Factory{
   //....
@@ -231,7 +220,6 @@ class Factory{
   }   
 }
 ```  
-
 
 ```java
 class Factory{
@@ -294,6 +282,7 @@ class Test1{
 ### 如何自定义注释 使用注释 注释何用 反射调用方法时如何加载注释。
 - 注解与其他类在形式上不同
 - 注解类上的默认注解是啥？
+
 ```java
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
@@ -302,8 +291,9 @@ public @interface PrivilegeAnnotation {
 	String[] roles();
 }
 ```
-- 如何在其他类方法中使用注解
+### 如何在其他类方法中使用注解
 - 注解类引入时当方法用，方法当属性用。
+
 ```java
 class StudentDao{
   @Override
@@ -314,7 +304,7 @@ class StudentDao{
 	}
 }
 ```
-- 注解何用：权限控制 事务控制用session(封装啦Connection对象和statement对象)
+### 注解何用：权限控制 事务控制用session(封装啦Connection对象和statement对象)
 - 反射调用方法时如何加载注释 实现权限控制。
 - 加载注释，得到roles进行判断。
 
@@ -371,6 +361,7 @@ public class MySqlException extends RuntimeException {
 
 throw newMyException("error");
 ```
+
 ### 解释一波ApplicationContext.xml和factory.properties的区别。
 - factory文件只能通过实现类字符串找到其实现类。
 - ApplicationContext文件能通过实现类字符串找到其实现类并找到与其关联的类。
@@ -394,6 +385,7 @@ ApplicationContext.xml：
 ```
 
 ### ApplicationContext.xml的使用与factory.properties不同。
+
 ```java
 private static Properties props=new Properties();
 static {
@@ -406,7 +398,6 @@ static {
         props.setProperty(key,value);
     }
 }
-
 String value=props.getProperty(name)
 
 /*---------------------------*/
@@ -418,18 +409,21 @@ ApplicationContext context=new ClassPathXmlApplicationContext("applicationContex
         IRegisterServiceDao isd=(IRegisterServiceDao)context.getBean("RegisterServiceDao");
 
         isd.Register();
-
+```   
+```text     
         /* output:
                 userdao 's print Method is invoked.......
                 登录
-
                 Process finished with exit code 0
         */        
-```        
+```
 
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180715141455.png)   
 
 ### 现在来实现动态代理(所有类的可以使用的生产代理类的方法) 并用MyInnvactionHandler类加权限控制
+- [完整源码](https://github.com/jack00000/wuxi_train/tree/master/SystemManagerPro)
+- 全程没有new 新建对象。
+- 关键：MyInnvactionHandler类 和Factory的getProxyInstance(String name)方法。
 - 有啥用？写一个=写啦无数个，效率高。
 - 顺便温习下通用工厂 动态代理还是用工厂实现
 - 如此，我们的工厂就两个通用方法：通用生产实现类对象的方法 & 通用生成实现类代理类的方法。
@@ -438,6 +432,21 @@ ApplicationContext context=new ClassPathXmlApplicationContext("applicationContex
 - iud->u  和RegisterServiceDao中的getU()有关？
 
 ```java
+/*1.传入实体类字符串到Factory的getProxyInstance(String name)方法中
+         2.通过实体类字符串找到实体类位置
+         3.创建大Class对象(配置文件不同，找的方式也不同。ApplicationContext.xml更方便)。
+         4.新建MyInnvactionHandler对象handler并传入实体类对象实现关联。
+         5.在MyInnvactionHandler类中定义invoke()方法传入需要重写的 实现类对象， 需重写的方法，对象数组Object[] args(这个什么鬼？)
+         6.将 实现类加载器，实现类接口类型，handler对象作为参数传入java.lang.reflect.Proxy的newProxyInstance()方法。
+         7.将生成的代理类对象返回给调用getProxyINstance()所要赋给的对象。
+         8.如何使用代理类对象？看实现类有那些方法就行。
+         9.当调用代理类的任意方法时都会调用这个方法invoke()，用到了反射，在这儿是管理权限的关键
+         10.动态代理没有具体类和具体重写方法，看的有点懵逼。
+         11.MyInnvactionHandler implements InvocationHandler
+         12.重写java.lang.reflect.InvocationHandler的invoke()方法。
+         13.MyInnvactionHandler就是代理类。就这样理解把
+         14.代理类权限控制不是重写方法，是根据注释决定合适能调用被代理方法。
+*/
 Object object=null;
 //创建实现类
 Object target=getInstance(name);
@@ -464,42 +473,51 @@ class MyInnvactionHandler{
         return flag;
     }
 
-    //实现代理对象调用
+    //执行的句柄，当调用代理类的任意方法时都会调用这个方法，用到了反射，在这儿是管理权限的关键
+
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        Object result=null;
-        //根据method获得target实现类的method
-        Method m1=target.getClass().getDeclaredMethod(method.getName(),method.getParameterTypes());//方法名 参数类型
+      Object result=null;
+       //根据method获得target实现类的method
+       Method m1=target.getClass().getDeclaredMethod(method.getName(),method.getParameterTypes());//方法名 参数类型
 
-        //加权限  找方法的注释
-        PrivilegeAnnotation privilegeAnnotation=m1.getDeclaredAnnotation(PrivilegeAnnotation.class);
+       //加权限  找方法的注释
+       PrivilegeAnnotation privilegeAnnotation=m1.getDeclaredAnnotation(PrivilegeAnnotation.class);
 
-        Session session=SessionFactory.getSession();
-        session.beginTransaction();
-        result=method.invoke(target,args);
+       Session session=SessionFactory.getSession();
+       session.beginTransaction();
+       result=method.invoke(target,args);
 
-        //为空则不需要权限控制
-        //取注释
-        if(privilegeAnnotation==null){
-            result=method.invoke(target,args);
-        }else {
-            boolean flag=privilegeAnnotation.isValidate();
-            if(!flag){
-                result=method.invoke(target,args);
-            }else {
-                String role=Application.getU().getRole();
-                boolean flag1=privilegeAnnotation.isValidate();
+       //为空则不需要权限控制
+       //取注释
+       if(privilegeAnnotation==null){
+           //调用实现类方法
+           result=method.invoke(target,args);
+       }else {
+           boolean flag=privilegeAnnotation.isValidate();
+           if(!flag){
+               result=method.invoke(target,args);
+               System.out.println("sssssssss2");
+           }else {
+               //获取使用方法的角色信息
+               String role=Application.getU().getRole();
+               //获取方法注释的角色信息
+               String[] roles=privilegeAnnotation.roles();
+               //看role是否在roles里面。
+               boolean flag1=isValidate(roles,role);
 
-                if(flag){
-                    result=method.invoke(target,args);
 
-                }else {
-                    throw  new MySqlException("权限不够");
-                }
+               if(flag1){
+                   System.out.println("sssssssss1");
+                   result=method.invoke(target,args);
+               }else {
+                   throw  new MySqlException("权限不够");
+               }
 
-            }
-        }
-        return null;
+           }
+       }
+
+       return result;
     }
 }
 ```
@@ -572,3 +590,13 @@ class Test3{
 }
 ```
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180715145546.png)
+
+### 动态代理实现权限控制(简易版思路)
+- 1.新建对象并设置role ，存入Application类的user对象。
+- 2.在MyInnvactionHandler类中引入实现类对象并获得方法注释roles与Application中的role做比较。
+- 3.如果role在roles[]中 则可以调用该方法，反之则抛出异常。
+
+### 反射机制实现事务控制
+- 1.对ServiceDao实现权限控制
+- 2.然后在里面写事务不就完成啦对事务的控制。
+- 3.权限控制包括：一般方法控制，事务控制等。

@@ -234,15 +234,16 @@ StringBuffer buffer=new StringBuffer();
      buffer.append("select a.* ,b.*,c.* from dormitory a left join student b ");
      buffer.append("on a.dormitoryid=b.dormitoryid inner join card c on b.stuid=c.stuid ");
      buffer.append("where a.dormitoryid=?");
-```     
-- 查询到的数据字段有如下表
+```
 
+### 查询到的数据字段有如下表
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180712072255.png)
+
 
 ### 目前只是把resultset的前2个字段赋给相应的对象dormitory 后三个字段赋给Student对象再放入Set<Student>容器。
 - 当我把第6个字段赋给Student对象报错？因为表有dormitoryid属性 ，类中没有
-
 ![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180712073205.png)
+
 
 ### 怎么把ResultSet指向的数据集合的cardid cardtype money字段取出来放在dormitory的属性Set<Student>容器的Student对象的属性Set<Card>容器中
 - [完整源码](https://github.com/jack00000/wuxi_train/tree/master/duoBiaoChaXun_dormitory2student2card_one2duo2duo)
@@ -308,17 +309,16 @@ class Test{
   }
 }
 ```
+![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180712204457.png)  
 
-![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180712204457.png)        
 
 ### 目前已完成：java端对 dormitor(一对多) student(一对多)card 表的多表查询
-
--  返回一个寝室的信息
+- 返回一个寝室的信息
 - 该寝室的所有学生信息
 - 该寝室所有学生的所有卡的信息
 
-### 现在完成：subject(多对多)student表 的多表查询
 
+### 现在完成：subject(多对多)student表 的多表查询
 - 数据库的表结构
 
 ```java
@@ -352,21 +352,18 @@ alter table SelectSubject add constraint constraint_fk2 foreign key(stuid) refer
 ```txt
 select a.*,b.* ,c.*from subject a inner join SelectSubject b on a.subjectid=b.subjectid inner join student c on b.stuid=c.stuid where a.subjectid="SB001";
 ```
-- 查询结果
+### 查询结果
 ![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180712210510.png)
 
-###  java端把数据取出来并存在相应容器Set<Subject>,Set<Student> 和属性中
-
+### java端把数据取出来并存在相应容器Set<Subject>,Set<Student> 和属性中
 - 说白啦，就是把一对多 反向做一次
 - eg:设计SubjectDao弄到subject对象基本属性和容器属性，查subjectid得到全部。
 - 设计StudentDao弄到subject对象基本属性和容器属性，查stuid得到全部。
-
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180712223447.png)
 
 
 
 ### sql :insert update delete  事务型操作
-
 - select count(*) from table;
 - select count(*) as nums from table;//给取得数据起别名。
 - select 返回一行（id是主键） 返回多行
@@ -374,12 +371,6 @@ select a.*,b.* ,c.*from subject a inner join SelectSubject b on a.subjectid=b.su
 - ResultSet 指针  没有数据对象  指向多表查询的数据。
 - white（ResultSet.next）
 - ResultSet.getString(3) 返回 查到的数据 第三列的东西
-
-
-
-
-
-
 
 
 ### 工厂模式 代理模式 写多表数据查询。

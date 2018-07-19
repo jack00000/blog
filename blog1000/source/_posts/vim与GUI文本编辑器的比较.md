@@ -23,11 +23,15 @@ categories: skills
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180512210753.png)
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180512210236.png)
 
-### linux 配置java环境
-- 用文本编辑器打开/etc/profile
+### deepin(linux) 配置java环境
+- 在终端用文本编辑器打开/etc/profile
+```java
+gedit etc/profile
+```
 - 在profile文件末尾加入：
 ```java
 export JAVA_HOME=jdk安装路径
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 ```
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180716232629.png)
