@@ -215,7 +215,7 @@ var m2=stuInstance('00009','www',60);
 - 取weather数组数据的思路：取到数组最外部对象，然后一步步深入
 - weather数组里面有date,message,status,city,count,data，yesterday，forecast对象 (称为一级属性)
 - data属性里面有n个二级属性 ，yesterday属性里面有n个二级属性，forecast对象是对象数组，每个二级对象含有n的三级属性。
-- weather[8][1][1] 就获取到啦forecast的第一个对象的date属性值。
+- weather[8][1].date 就获取到啦forecast的第一个对象的date属性值。
 
 ```JavaScript
 <script>

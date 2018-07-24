@@ -7,8 +7,8 @@ categories: skills
 
 
 ### 宿舍管理系统前端一览
-![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180719162740.png)
-![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180719162746.png)
+![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180719190344.png)
+![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180719190406.png)
 
 
 ### 在themeleaf+springboot中实现表单的数据传递。
@@ -103,3 +103,11 @@ public class GreetingController {
 
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180718200149.png)
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180718200158.png)
+
+### springboot+themeleaf 如何在html中引入html
+
+```html
+<div th:replace="navbar :: html"></div>
+<!--jsp引入jsp 则是-->
+<%@ include file="inlayingJsp.jsp" %>
+```
