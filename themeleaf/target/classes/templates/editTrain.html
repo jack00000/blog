@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+</head>
+<body>
+<div style="margin:0px auto; width:500px">
+
+    <form action="updateTrain" method="post">
+
+        车种:   <input name="trty" th:value="${t.trty}"/> <br/>
+        始站:   <input name="trss" th:value="${t.trss}"/> <br/>
+        终站:   <input name="trsa" th:value="${t.trsa}"/> <br/>
+        发时:   <input name="trst" th:value="${t.trst}"/> <br/>
+        到时:   <input name="trat" th:value="${t.trat}"/> <br/>
+        车厢:   <input name="trcc" th:value="${t.trcc}"/> <br/>
+        卧铺:   <input name="trsc" th:value="${t.trsc}"/> <br/>
+        里程:   <input name="trkm" th:value="${t.trkm}"/> <br/>
+
+
+        <input name="trid" type="hidden" th:value="${t.trid}"/>
+        <button type="submit">提交</button>
+
+    </form>
+</div>
+</body>
+
+</html>

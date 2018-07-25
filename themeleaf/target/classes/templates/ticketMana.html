@@ -1,0 +1,133 @@
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="shortcut icon" href="static/images/favicon.png" type="image/png">
+
+<title>Bracket Responsive Bootstrap3 Admin</title>
+
+<link href="static/css/style.default.css" rel="stylesheet">
+<link href="static/css/jquery.datatables.css" rel="stylesheet">
+
+
+<script src="static/js/jquery-1.11.1.min.js"></script>
+<script src="static/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/modernizr.min.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/toggles.min.js"></script>
+<script src="static/js/retina.min.js"></script>
+<script src="static/js/jquery.cookies.js"></script>
+
+
+<script src="static/js/jquery.datatables.min.js"></script>
+<script src="static/js/select2.min.js"></script>
+
+<script src="static/js/custom.js"></script>
+<!--bootstrap-->
+<script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+<script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+<script>
+    jQuery(document).ready(function() {
+
+        "use strict";
+
+        jQuery('#table1').dataTable();
+
+        jQuery('#table2').dataTable({
+            "sPaginationType": "full_numbers"
+        });
+
+        // Select2
+        jQuery('select').select2({
+            minimumResultsForSearch: -1
+        });
+
+        jQuery('select').removeClass('form-control');
+
+        // Delete row in a table
+        jQuery('.delete-row').click(function(){
+            var c = confirm("Continue delete?");
+            if(c)
+                jQuery(this).closest('tr').fadeOut(function(){
+                    jQuery(this).remove();
+                });
+
+            return false;
+        });
+
+        // Show aciton upon row hover
+        jQuery('.table-hidaction tbody tr').hover(function(){
+            jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+        },function(){
+            jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+        });
+
+
+    });
+</script>
+
+
+<body>
+<div th:replace="nav :: html"></div>
+
+<table class="table table-primary mb30">
+    <thead>
+    <tr>
+        <td >车票编号</td>
+        <td >始发站</td>
+        <td >终点站</td>
+        <td >发时</td>
+        <td >到时</td>
+        <td >票价</td>
+        <td >座位类型</td>
+        <td >车票类型</td>
+        <td >座位号</td>
+        <td >售票站名</td>
+        <td >信息修改</td>
+        <td >信息删除</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c:${page.list}">
+        <td th:text="${c.tiid}"></td>
+        <td th:text="${c.tiss}"></td>
+        <td th:text="${c.tias}"></td>
+        <td th:text="${c.tist}"></td>
+        <td th:text="${c.tiat}"></td>
+        <td th:text="${c.tipr}"></td>
+        <td th:text="${c.titp}"></td>
+        <td th:text="${c.tity}"></td>
+        <td th:text="${c.tino}"></td>
+        <td th:text="${c.sname}"></td>
+        <td><a th:href="@{/editTicket(tiid=${c.tiid})}">编辑</a></td>
+        <td><a th:href="@{/deleteTicket(tiid=${c.tiid})}">删除</a></td>s
+    </tr>
+    </tbody>
+</table>
+<div style="text-align:center">
+    <div>
+        <a th:href="@{/listTicket(start=0)}">[首  页]</a>
+        <a th:href="@{/listTicket(start=${page.pageNum-1})}">[上一页]</a>
+        <a th:href="@{/listTicket(start=${page.pageNum+1})}">[下一页]</a>
+        <a th:href="@{/listTicket(start=${page.pages})}">[末  页]</a>
+    </div>
+    <br/>
+    <form style="text-align:center" action="addTicket" method="post">
+
+        车号: <input name="tiid"/> <br/>
+        始站: <input name="tiss"/> <br/>
+        终站: <input name="tias"/> <br/>
+        发时: <input name="tist"/> <br/>
+        到时: <input name="tiat"/> <br/>
+        票价: <input name="tipr"/> <br/>
+        座型: <input name="titp"/> <br/>
+        票型: <input name="tity"/> <br/>
+        座号: <input name="tino"/> <br/>
+
+        <button type="submit">提交</button>
+
+    </form>
+
+</div>
+</body>
+</html>

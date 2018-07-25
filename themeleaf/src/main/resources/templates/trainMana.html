@@ -1,0 +1,133 @@
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="shortcut icon" href="static/images/favicon.png" type="image/png">
+
+<title>Bracket Responsive Bootstrap3 Admin</title>
+
+<link href="static/css/style.default.css" rel="stylesheet">
+<link href="static/css/jquery.datatables.css" rel="stylesheet">
+
+
+<script src="static/js/jquery-1.11.1.min.js"></script>
+<script src="static/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/modernizr.min.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/toggles.min.js"></script>
+<script src="static/js/retina.min.js"></script>
+<script src="static/js/jquery.cookies.js"></script>
+
+
+<script src="static/js/jquery.datatables.min.js"></script>
+<script src="static/js/select2.min.js"></script>
+
+<script src="static/js/custom.js"></script>
+
+<script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+<script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+<script>
+    jQuery(document).ready(function() {
+
+        "use strict";
+
+        jQuery('#table1').dataTable();
+
+        jQuery('#table2').dataTable({
+            "sPaginationType": "full_numbers"
+        });
+
+        // Select2
+        jQuery('select').select2({
+            minimumResultsForSearch: -1
+        });
+
+        jQuery('select').removeClass('form-control');
+
+        // Delete row in a table
+        jQuery('.delete-row').click(function(){
+            var c = confirm("Continue delete?");
+            if(c)
+                jQuery(this).closest('tr').fadeOut(function(){
+                    jQuery(this).remove();
+                });
+
+            return false;
+        });
+
+        // Show aciton upon row hover
+        jQuery('.table-hidaction tbody tr').hover(function(){
+            jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+        },function(){
+            jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+        });
+
+
+    });
+</script>
+
+
+<body>
+<div th:replace="nav :: html"></div>
+
+<table class="table table-primary mb30">
+    <thead>
+    <tr>
+        <th>列车编号</th>
+        <th>车种</th>
+        <th>始发站</th>
+        <th>终到站</th>
+        <th>发时</th>
+        <th>到时</th>
+        <th>车厢数</th>
+        <th>卧铺车厢数</th>
+        <th>里程</th>
+        <th>经过车站</th>
+        <th>信息修改</th>
+        <th>信息删除</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="c:${page.list}">
+        <td th:text="${c.trid}"></td>
+        <td th:text="${c.trty}"></td>
+        <td th:text="${c.trss}"></td>
+        <td th:text="${c.trsa}"></td>
+        <td th:text="${c.trst}"></td>
+        <td th:text="${c.trat}"></td>
+        <td th:text="${c.trcc}"></td>
+        <td th:text="${c.trsc}"></td>
+        <td th:text="${c.trkm}"></td>
+        <td th:text="${c.sname}"></td>
+        <td><a th:href="@{/editTrain(trid=${c.trid})}">编辑</a></td>
+        <td><a th:href="@{/deleteTrain(trid=${c.trid})}">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<div style="text-align:center">
+    <div>
+        <a th:href="@{/listTrain(start=0)}">[首  页]</a>
+        <a th:href="@{/listTrain(start=${page.pageNum-1})}">[上一页]</a>
+        <a th:href="@{/listTrain(start=${page.pageNum+1})}">[下一页]</a>
+        <a th:href="@{/listTrain(start=${page.pages})}">[末  页]</a>
+    </div>
+    <br/>
+    <form style="text-align:center" action="addTrain" method="post">
+
+        车种: <input name="trty"/> <br/>
+        始站: <input name="trss"/> <br/>
+        终站: <input name="trsa"/> <br/>
+        发时: <input name="trst"/> <br/>
+        到时: <input name="trat"/> <br/>
+        车厢: <input name="trcc"/> <br/>
+        卧铺: <input name="trsc"/> <br/>
+        里程: <input name="trkm"/> <br/>
+
+        <button type="submit">提交</button>
+
+    </form>
+
+</div>
+</body>
+</html>

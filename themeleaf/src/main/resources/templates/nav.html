@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="fristPage">列车票务管理系统</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							 <a href="fristPage">首页</a>
+						</li>
+						<li>
+							 <a href="trainInfo">列车信息</a>
+						</li>
+            <li>
+							 <a href="ticketInfo">车票信息</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">信息管理<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="listTrain">列车信息管理</a>
+								</li>
+								<li>
+									 <a href="listSeller">用户信息管理</a>
+								</li>
+								<li>
+									 <a href="listTicket">车票信息管理</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="listSale">售票信息管理</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="listBack">退票信息管理</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search" action="serach" method="post">
+						<div class="form-group">
+							<input name="tiid" type="text" class="form-control" />
+						</div> <button type="submit" class="btn btn-default">Search</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+               <!--el表达式获取当前对象-->
+							<a href="#">当前用户：</a>
+						</li>
+						<li>
+							<a th:text="zhangsan"></a>
+						</li>
+
+
+					</ul>
+				</div>
+
+			</nav>
+		</div>
+	</div>
+</div>
+
+  </body>
+</html>

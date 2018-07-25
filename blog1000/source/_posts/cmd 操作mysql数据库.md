@@ -23,6 +23,14 @@ categories: skills
 路径最好是某盘的下面，不然会出稀奇古怪的错误
 ![](http://oyj1fkfcr.bkt.clouddn.com/2017-12-28_234633.png)
 ![](http://oyj1fkfcr.bkt.clouddn.com/2017-12-31_142930.png)
+- 导出数据库  mysqldump -u用户名 -p密码 数据库名 > 数据库名.sql
+```java
+mysqldump -uroot -p Ticket > Ticket.sql
+```
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180725093258.png)
+- 云服务器的数据库导入成功截图
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180725094817.png)
+
 
 - 多表查询
 - inner join /left join 区别

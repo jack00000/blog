@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="http://pcf4hu3bx.bkt.clouddn.com/favicon.png" type="image/png">
+
+  <title>Bracket Responsive Bootstrap3 Admin</title>
+
+  <link href="http://pcf41wtdn.bkt.clouddn.com/style.default.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="signin">
+
+
+
+
+
+<section>
+
+    <div class="signinpanel">
+
+        <div class="row">
+
+            <div class="col-md-7">
+
+                <div class="signin-info">
+                    <div class="logopanel">
+                        <h1><span>[</span> Ticket Managment <span>]</span></h1>
+                    </div><!-- logopanel -->
+
+                    <div class="mb20"></div>
+
+                    <h5><strong>Welcome to ticket Managment !</strong></h5>
+                    <ul>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Show your tickets </li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Select tickets you need</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Add tickets to your shopping cart</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Delete tickets form your shopping cart</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> and much more...</li>
+                    </ul>
+                    <div class="mb20"></div>
+                    <strong>Not a member? <a href="signup.html">Sign Up</a></strong>
+                </div><!-- signin0-info -->
+
+            </div><!-- col-sm-7 -->
+
+            <div class="col-md-5">
+
+                <form method="post" action="login2main">
+                    <h4 class="nomargin">Sign In</h4>
+                    <p class="mt5 mb20">Login to access your account.</p>
+
+                    <input name="name" type="text" class="form-control uname" placeholder="Username" />
+                    <input name="password" type="password" class="form-control pword" placeholder="Password" />
+                    <a href=""><small>Forgot Your Password?</small></a>
+                    <button type="submit" class="btn btn-success btn-block">Sign In</button>
+
+                </form>
+            </div><!-- col-sm-5 -->
+
+        </div><!-- row -->
+
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2014. All Rights Reserved. Bracket Bootstrap 3 Admin Template
+            </div>
+            <div class="pull-right">
+                Created By: <a href="http://themepixels.com/" target="_blank">ThemePixels</a>
+            </div>
+        </div>
+
+    </div><!-- signin -->
+
+</section>
+
+
+<script src="http://pcf4tanqv.bkt.clouddn.com/jquery-1.11.1.min.js"></script>
+<script src="http://pcf4tanqv.bkt.clouddn.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://pcf4tanqv.bkt.clouddn.com/bootstrap.min.js"></script>
+<script src="http://pcf4tanqv.bkt.clouddn.com/modernizr.min.js"></script>
+<script src="http://pcf4tanqv.bkt.clouddn.com/jquery.sparkline.min.js"></script>
+<script src="http://pcf4tanqv.bkt.clouddn.com/jquery.cookies.js"></script>
+
+<script src="http://pcf4tanqv.bkt.clouddn.com/toggles.min.js"></script>
+<script src="http://pcf4tanqv.bkt.clouddn.com/retina.min.js"></script>
+
+<script src="http://pcf4tanqv.bkt.clouddn.com/custom.js"></script>
+<script>
+    jQuery(document).ready(function(){
+
+        // Please do not use the code below
+        // This is for demo purposes only
+        var c = jQuery.cookie('change-skin');
+        if (c && c == 'greyjoy') {
+            jQuery('.btn-success').addClass('btn-orange').removeClass('btn-success');
+        } else if(c && c == 'dodgerblue') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        } else if (c && c == 'katniss') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        }
+    });
+</script>
+
+</body>
+</html>

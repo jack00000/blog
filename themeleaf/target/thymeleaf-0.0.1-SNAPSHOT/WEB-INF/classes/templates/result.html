@@ -1,0 +1,106 @@
+<html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="shortcut icon" href="static/images/favicon.png" type="image/png">
+
+<title>Bracket Responsive Bootstrap3 Admin</title>
+
+<link href="static/css/style.default.css" rel="stylesheet">
+<link href="static/css/jquery.datatables.css" rel="stylesheet">
+
+
+<script src="static/js/jquery-1.11.1.min.js"></script>
+<script src="static/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/modernizr.min.js"></script>
+<script src="static/js/jquery.sparkline.min.js"></script>
+<script src="static/js/toggles.min.js"></script>
+<script src="static/js/retina.min.js"></script>
+<script src="static/js/jquery.cookies.js"></script>
+
+
+<script src="static/js/jquery.datatables.min.js"></script>
+<script src="static/js/select2.min.js"></script>
+
+<script src="static/js/custom.js"></script>
+<script src="http://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+<link href="http://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+<script src="http://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+
+<script>
+    jQuery(document).ready(function() {
+
+        "use strict";
+
+        jQuery('#table1').dataTable();
+
+        jQuery('#table2').dataTable({
+            "sPaginationType": "full_numbers"
+        });
+
+        // Select2
+        jQuery('select').select2({
+            minimumResultsForSearch: -1
+        });
+
+        jQuery('select').removeClass('form-control');
+
+        // Delete row in a table
+        jQuery('.delete-row').click(function(){
+            var c = confirm("Continue delete?");
+            if(c)
+                jQuery(this).closest('tr').fadeOut(function(){
+                    jQuery(this).remove();
+                });
+
+            return false;
+        });
+
+        // Show aciton upon row hover
+        jQuery('.table-hidaction tbody tr').hover(function(){
+            jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+        },function(){
+            jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+        });
+
+
+    });
+</script>
+
+
+<body>
+<div th:replace="nav :: html"></div>
+
+<table class="table table-primary mb30">
+    <thead>
+    <tr>
+        <th>车票编号</th>
+        <th>工作证号</th>
+        <th>车站名</th>
+        <th>售票时间</th>
+
+        <th>工作证号</th>
+        <th>售票员姓名</th>
+        <th>登录密码</th>
+        <th>经过车站</th>
+
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+        <td th:text="${sale.tiid}"></td>
+        <td th:text="${sale.slid}"></td>
+        <td th:text="${sale.sname}"></td>
+        <td th:text="${sale.slti}"></td>
+
+        <td th:text="${seller.slid}"></td>
+        <td th:text="${seller.slna}"></td>
+        <td th:text="${seller.slpa}"></td>
+        <td th:text="${seller.sname}"></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

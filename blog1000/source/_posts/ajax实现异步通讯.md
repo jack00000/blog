@@ -44,7 +44,7 @@ System.out.println(map.toString());
 
 
 
-### 实现往客户端输出&客户端接收
+### 实现往客户端输出&客户端接收  [完整源码]()
 
 ```java
 //loginAction    这时候页面是不刷新的
@@ -85,7 +85,11 @@ out.flush();
 </script>
 <div id="content">把js中的数据显示在这里</div>
 
-//不能用submit（提交就完蛋啦）  用send 
+//不能用submit（提交就完蛋啦）  用send
 <form action="logServlet" method="post">
 <button onClick="send"></button>
 </form>
+```
+### 成功截图：记住把第三方jar放进tomcat的lib目录下，不然会报错 找不到类。
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180724110149.png)
+![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180724105815.png)
