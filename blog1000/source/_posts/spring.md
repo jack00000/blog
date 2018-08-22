@@ -2,7 +2,7 @@
 title: spring
 date: 2018-1-20 20:13:10
 tags:
-categories: how2j   
+categories: how2j
 ---
 
 <h3>完整教程：[how2j](http://how2j.cn/k/spring/spring-ioc-di/87.html#nowhere)</h3>
@@ -10,8 +10,10 @@ categories: how2j
 <h3>备忘</h3>
 
 - IOC 反转控制 是Spring的基础，Inversion Of Control .简单说就是创建对象由以前的程序员自己new 构造方法来调用，变成了交由Spring创建对象
+- Spring容器作为超级大工厂，负责创建、管理所有的Java对象，这些Java对象被称为Bean。
 
 - DI 依赖注入 Dependency Inject. 简单地说就是拿到的对象的属性，已经被注入好相关值了，直接使用即可。
+- Spring容器管理容器中Bean之间的依赖关系，Spring使用一种被称为"依赖注入"的方式来管理Bean之间的依赖关系。
 
 - spring给对象注入属性
 ![](http://oxz3x2njl.bkt.clouddn.com/2018-01-26_191800.png)

@@ -139,7 +139,58 @@ private List<Student> students;
 
 
 ## 好的东西
-- lombok插件 +@Data注解=get/set/toString()
+- lombok插件 +@Data注解=get/set/toString() idea中下载lombok插件并在pom.xml配置
+
+```java
+<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+</dependency>
+```
 - springboot框架注解
 - 按ctrl+鼠标点方法 可以看到源代码
 - 统一api接口返回的json格式。
+- freemaker（.ftl）模板引擎的使用(特定语法完成分页细节判断) pom.xml引入
+- 突然发现artifactId有spring-boot-starter   groupId则为org.springframework.boot
+```java
+<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-freemarker</artifactId>
+</dependency>
+```
+
+- gson的使用
+
+```java
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+</dependency>
+```
+- 批量修改/修改统一字段 ctrl+shift+R
+- redis 的使用 pom.xml引入
+
+```java
+<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+- websocket 的使用 pom.xml引入
+```java
+<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-websocker</artifactId>
+</dependency>
+```
+
+### springboot用Pagedui对象+freemaker模板引擎做一个分页demo
+
+
+## 总结一下
+- 1.知道啦jpa的优势和不足 建表还是用原生sql、
+- 2.在jpa中自定义原生sql查询
+- 3.数据拼装以及返回格式统一。
+- 4.RestController与Controller的区别
+- 5.事务、服务、实体类等注解 和第三方的插件lombok
+- 6.好用的api接口测试软件postman
