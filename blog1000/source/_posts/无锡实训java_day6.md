@@ -1,6 +1,6 @@
 ---
 title: 无锡实训java_day6
-date: 2018-7-9 20:13:10
+date: 2018-7-8 20:13:10
 tags:
 categories: 无锡实训java
 ---
@@ -208,7 +208,7 @@ class SessionFactory{
 //
 ```
 
-### 在原子dao不提交，不关闭  在servicedao统一进行提交(事务管理)  
+### 在原子dao不提交，不关闭  在servicedao统一进行提交(事务管理)
 - ServiceDao 对多个表进行操作  uesrdao对单个表进行操作
 - 单独的dao都没有提交事务，所以在servicedao实现对事务的统一管理
 - 要单独进行原子型操作，用代理类。
@@ -333,7 +333,7 @@ try{
 									 System.out.println("插入失败，已 回滚");
 
 							 }
-```					
+```
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180711132556.png)
 
 

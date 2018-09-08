@@ -1,13 +1,13 @@
 ---
 title: 无锡实训java_day5
-date: 2018-7-9 20:13:10
+date: 2018-7-7 20:13:10
 tags:
 categories: 无锡实训java
 ---
 
 ## 大致内容
 - 接口和多态的设计模式解决啥问题？eg:植物大战僵尸  多个植物 多个僵尸 方法都是打，但有区别。这时候怎么办？
-- 适配器模式：实现类一个 接口一个  适配器多个    
+- 适配器模式：实现类一个 接口一个  适配器多个
 - 比较常用的保存数据的集合：List Set Collection Stack Map 在内存中的存储方式不同 遍历方式也不同
 - 表中如何体现：一对一 一对多
 - 一对一：A类中 private Student stu；
@@ -163,10 +163,10 @@ String idString="420704199607284250";
 ![](http://oyj1fkfcr.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180709225704.png)
 
 ### 简单购物车：打印出购物车中所有商品的价格，数量，总价  所有商品总价。[完整源码](https://github.com/jack00000/wuxi_train/tree/master/shopingCart)
-- 首先定义实体类Product 再定义一个类Item封装num与Product(【因为num不是Product的属性，所以这样办)  
+- 首先定义实体类Product 再定义一个类Item封装num与Product(【因为num不是Product的属性，所以这样办)
 - 定义容器Map<String,Item> map=new hashMap<String,Product>();
 - 买一个东西放一个item对象
-- 最后把所有数据全部取出来，进行算数运算，打印输出  
+- 最后把所有数据全部取出来，进行算数运算，打印输出
 
 - 简而言之，就是对Map容器的存取操作(先封装成Entry在存在Set容器中，再用迭代器查询)
 - 迭代器取数据多种方法
@@ -219,7 +219,7 @@ float num=0f;
         }
         System.out.println("总账单价格");
         System.out.println(num);
-```   
+```
 ![](http://oxz3x2njl.bkt.clouddn.com/%E6%B7%B1%E5%BA%A6%E6%88%AA%E5%9B%BE_20180709183357.png)
 - 想方设法直接从从map里面的item对象对其num进行修改，失败。
 - 换种思路，取出它的num 新建Product 新建Item  最后map.put(item.getProduct().getPid(),item)覆盖到原来的
