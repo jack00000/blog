@@ -1,8 +1,8 @@
 ---
 title: python实现飞机大战
-date: 2018-7-20 20:13:10
-tags: python
-categories: 无锡实训python
+date: 2018-9-7 20:13:10
+tags: 无锡实训python
+categories: python
 ---
 
 
@@ -500,4 +500,4 @@ if __name__ == '__main__':
 
         # 更新需要显示的内容
         pygame.display.update()
-```        
+```

@@ -119,3 +119,5 @@ spring:
 
 </project>
 ```
+
+### maven项目通过搜索导入pom.xml ->alt+insert
